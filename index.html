@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>La Rosca · Transporte por carretera</title>
+<meta name="description" content="Método basado en 15 años de experiencia en la carretera para quienes quieren dedicarse al transporte por carreteras.">
+<meta name="theme-color" content="#070d24">
+<link rel="icon" href="img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --noche:#070d24;
+  --asfalto:#1a1a1a;
+  --azul:#4f72d4;
+  --azul-claro:#8aa3ea;
+  --faro:#f2a53a;
+  --hueso:#f2f0ee;
+  --texto:#ffffff;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Roboto,system-ui,sans-serif;font-size:1.0625rem;line-height:1.7;color:var(--asfalto);background:#fff}
+h1,h2,h3{font-family:Poppins,Roboto,sans-serif;line-height:1.15}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--faro);outline-offset:3px}
+
+/* Cabecera */
+.cabecera{position:absolute;top:0;left:0;right:0;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.25rem clamp(1rem,5vw,4rem)}
+.marca{display:flex;align-items:center;gap:.75rem;text-decoration:none;color:var(--texto);font-family:Poppins,sans-serif;font-weight:600}
+.marca img{width:64px;height:64px;object-fit:contain}
+.cabecera nav{display:flex;gap:1.5rem}
+.cabecera nav a{color:var(--texto);text-decoration:none;font-weight:500;padding:.25rem 0;border-bottom:2px solid transparent}
+.cabecera nav a:hover{border-color:var(--faro)}
+
+/* Portada */
+.portada{position:relative;min-height:92vh;display:flex;align-items:center;color:var(--texto);overflow:hidden;
+  background:
+    linear-gradient(180deg,rgba(7,13,36,.55),rgba(7,13,36,.15) 55%,rgba(7,13,36,.7)),
+    url(img/hero.jpg) center/cover no-repeat,
+    linear-gradient(180deg,#0a1a4a,var(--noche))}
+/* Estelas de luz de los faros: se ven aunque falte la foto */
+.portada::before,.portada::after{content:"";position:absolute;left:-10%;width:130%;height:3px;border-radius:3px;transform:rotate(-4deg);opacity:.75}
+.portada::before{bottom:22%;background:linear-gradient(90deg,transparent,var(--faro) 30%,#fff 55%,transparent)}
+.portada::after{bottom:17%;background:linear-gradient(90deg,transparent,#d9443a 40%,transparent);opacity:.55}
+.portada-texto{position:relative;z-index:2;width:min(100%,1100px);margin:0 auto;padding:7rem clamp(1rem,5vw,4rem) 8rem}
+.portada h1{font-size:clamp(2.4rem,6.5vw,4.5rem);font-weight:700;max-width:12ch}
+.portada p{margin-top:1.5rem;font-size:clamp(1.1rem,2.4vw,1.4rem);max-width:30ch}
+.boton{display:inline-block;margin-top:2rem;padding:.85rem 1.75rem;background:var(--azul);color:#fff;font-weight:700;text-decoration:none;border-radius:4px}
+.boton:hover{background:#3f60bf}
+.frase{position:absolute;right:0;bottom:0;z-index:3;max-width:min(100%,420px);padding:2.25rem 2.5rem;background:var(--asfalto);color:#fff;font-weight:700;font-size:1.15rem;line-height:1.35}
+
+/* Quién soy */
+.quien{background:var(--hueso);padding:clamp(3rem,8vw,6rem) clamp(1rem,5vw,4rem)}
+.quien-grid{width:min(100%,1100px);margin:0 auto;display:grid;grid-template-columns:1.1fr 1fr;gap:0;align-items:center}
+.quien h2{font-size:clamp(2rem,4vw,3rem);color:var(--azul);margin-bottom:1.5rem;grid-column:1/-1;text-align:right}
+.tarjeta{position:relative;z-index:2;background:var(--azul);color:#fff;padding:clamp(1.5rem,4vw,2.75rem);margin-right:-4rem;border:1.25rem solid #fff}
+.tarjeta h3{font-size:1.35rem;margin-bottom:.75rem}
+.tarjeta p+p{margin-top:1rem}
+.foto{width:100%;height:100%;min-height:380px;background:url(img/camion.jpg) center/cover no-repeat,linear-gradient(180deg,#7da3cf 0%,#c9dcec 40%,#35553f 40.1%,#1d3526 100%)}
+
+/* Método */
+.metodo{background:var(--asfalto);color:#fff;padding:clamp(3.5rem,8vw,6rem) clamp(1rem,5vw,4rem);text-align:center}
+.metodo h2{font-size:clamp(2rem,4vw,3rem);color:var(--azul)}
+.metodo .intro{max-width:62ch;margin:1.25rem auto 0}
+.pilares{width:min(100%,1100px);margin:3.5rem auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem}
+.pilares svg{width:64px;height:64px;stroke:var(--azul);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.pilares h3{margin:1.25rem 0 .75rem;font-size:1.4rem}
+.pilares p{font-size:1rem;color:#e6e6e6}
+
+/* Pie */
+.pie{background:var(--asfalto);color:#e6e6e6;text-align:center;padding:0 1rem 2.5rem}
+.pie img{width:110px;height:110px;object-fit:contain;display:block;margin:0 auto 2.5rem}
+.pie p{width:min(100%,1100px);margin:0 auto;padding-top:1.75rem;border-top:1px solid #333;font-size:.95rem}
+
+@media (max-width:820px){
+  .cabecera nav{display:none}
+  .portada{min-height:84vh}
+  .portada-texto{padding-bottom:11rem}
+  .frase{padding:1.5rem}
+  .quien-grid{grid-template-columns:1fr}
+  .quien h2{text-align:left}
+  .tarjeta{margin-right:0;border-width:.75rem}
+  .pilares{grid-template-columns:1fr;gap:3rem}
+}
+</style>
+</head>
+<body>
+
+<header class="cabecera">
+  <a class="marca" href="#inicio">
+    <img src="img/logo.png" alt="" onerror="this.style.display='none'">
+    <span>La Rosca</span>
+  </a>
+  <nav aria-label="Principal">
+    <a href="#quien">La Rosca</a>
+    <a href="#metodo">Método</a>
+  </nav>
+</header>
+
+<main>
+  <section class="portada" id="inicio">
+    <div class="portada-texto">
+      <h1>Bienvenido a la Rosca</h1>
+      <p>¿Quieres dedicarte al mundo del transporte por carreteras?</p>
+      <a class="boton" href="#metodo">Conoce el método</a>
+    </div>
+    <div class="frase">El comienzo en cualquier profesión es un mar de dudas</div>
+  </section>
+
+  <section class="quien" id="quien">
+    <div class="quien-grid">
+      <h2>La Rosca</h2>
+      <div class="tarjeta">
+        <h3>Para eso hemos creado este sitio web</h3>
+        <p>Aquí se te ofrece una metodología basada en 15 años de experiencia en el día a día del mundo de la carretera.</p>
+        <p>En este portal intento acercarte un poco más a este modo de vida. Olvida los tópicos sobre lo que se dice de quienes han hecho de esta profesión su manera de vivir: cada vez son más las mujeres que se integran a esta actividad. Por los 15 años de experiencia que adquirí, puedo ayudarte a iniciarte y brindarte mi aprendizaje para tu comienzo. Las autoescuelas y los exámenes solo te dan la opción de tener el carnet; yo te ofrezco mis vivencias. Por ello te invito a que descubras mi método.</p>
+      </div>
+      <div class="foto" role="img" aria-label="Camión circulando por una carretera de montaña"></div>
+    </div>
+  </section>
+
+  <section class="metodo" id="metodo">
+    <h2>Método</h2>
+    <p class="intro">El método para que puedas decidir tu vida en el transporte por carreteras y hacer de tu pasión tu manera de vivir.</p>
+    <p class="intro">Mi misión es darte el conocimiento basado en la experiencia, por eso te propongo mi sistema C.A.P.</p>
+
+    <div class="pilares">
+      <article>
+        <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M8 8h18v6a5 5 0 1 0 10 0V8h20v18h-6a5 5 0 1 0 0 10h6v20H36v-6a5 5 0 1 0-10 0v6H8V36h6a5 5 0 1 0 0-10H8z"/></svg>
+        <h3>Conocimiento</h3>
+        <p>Descubre el mundo del transporte por carretera.</p>
+      </article>
+      <article>
+        <svg viewBox="0 0 64 64" aria-hidden="true"><rect x="16" y="6" width="42" height="52" rx="3"/><path d="M24 20l4 4 7-8M24 34l4 4 7-8M24 48l4 4 7-8M42 22h10M42 36h10M42 50h10"/><path d="M16 14H8v40a4 4 0 0 0 4 4h6"/></svg>
+        <h3>Aprendizaje</h3>
+        <p>Con quien mejor puedes aclarar todas las dudas y tener un buen comienzo, pues con alguien que lo ha vivido por más de 15 años.</p>
+      </article>
+      <article>
+        <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M38 12c8-6 16-6 16-6s0 8-6 16L34 36 28 30z"/><path d="M28 30l-8-2-8 8 10 2M34 36l2 8-8 8-2-10"/><circle cx="42" cy="22" r="4"/><path d="M14 50l-6 6"/></svg>
+        <h3>Pasión</h3>
+        <p>Siente que tu profesión sea para ti tu ADN, la sangre que fluye por tu cuerpo. Cuando lleves en tus manos la Rosca, sentirás el orgullo de conducir esa máquina que deslumbra con su andar por el asfalto.</p>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer class="pie">
+  <img src="img/logo-azul.png" alt="La Rosca" onerror="this.src='img/logo_azul.png'">
+  <p>Copyright © larosca.es 2026</p>
+</footer>
+
+</body>
+</html>
